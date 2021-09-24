@@ -17,6 +17,9 @@ namespace Matrix
              * MatrixChecker.CheckMultiplication
              * MatrixChecker.CheckRotationMatrix
              * 
+             * 
+             * 
+             * 
              * Observera att testerna inte är noga testade.
              * 
              * De tar emot argument enligt följande standard:
@@ -45,6 +48,68 @@ namespace Matrix
 
             // De fyra första siffrorna = Matris A, de nästa fyra siffrorna = Matris B, de sista fyra siffrorna = resultatet av A * B
             // Exempel: MatrixChecker.CheckMultiplication(1, 2, 3, 4, 1, 2, 3, 4, 7, 10, 15, 22);
+            float a00, a01, a10, a11; // Detta är för matrisen A
+            float b00, b01, b10, b11; // Detta är för matrisen B
+            float c00, c01, c10, c11; // Detta är för matrisen C
+            float radians = 3.14f; // Detta är för radianerna
+
+            a00 = 1;
+            a01 = 2;
+            a10 = 3;
+            a11 = 4;
+
+            b00 = 3;
+            b01 = 4;
+            b10 = 5;
+            b11 = 6;
+
+            c00 = a00 + b00;
+            c01 = a01 + b01;
+            c10 = a10 + b10;
+            c11 = a11 + b11;
+
+            Draw2x2Matrix(c00, c01, c10, c11);
+            MatrixChecker.CheckAddition(a00, a01, a10, a11, b00, b01, b10, b11, c00, c01, c10, c11);
+
+            Console.WriteLine();
+            Console.ReadKey();
+
+            
+
+            a00 = (float)Math.Cos(radians);
+            a01 = (float)Math.Sin(radians);
+            a10 = (float)Math.Sin(-radians);
+
+            MatrixChecker.CheckRotationMatrix(radians, a00, a01, a10, a00);
+            Draw2x2Matrix(a00, a01, a10, a00);
+
+            Console.WriteLine();
+            Console.ReadKey();
+
+            a00 = 1;
+            a01 = 2;
+            a10 = 3;
+            a11 = 4;
+
+            b00 = 5;
+            b01 = 6;
+            b10 = 7;
+            b11 = 8;
+
+            c00 = a00 * b00 + a01 * b10;
+            c01 = a01 * b01 + a01 * b11;
+            c10 = a10 * b00 + a11 * b11;
+            c11 = a11 * b01 + a11 * b11;
+
+            Draw2x2Matrix(c00, c01, c10, c11);
+            MatrixChecker.CheckAddition(a00, a01, a10, a11, b00, b01, b10, b11, c00, c01, c10, c11);
+
+            Console.WriteLine();
+            Console.ReadKey();
+
+
+
+
 
 
             // Byt ut detta anropet med dina matrisvärden, så kommer programmet att rita ut dem istället :)
